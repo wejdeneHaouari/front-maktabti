@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SignInService} from '../../_services/sign-in.service';
 import {DASHBORD} from '../../../globals/global-variables';
 import {first} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private signInService: SignInService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         error => {
           this.error = error;
           this.loading = false;
+          this.toastr.error(error);
         });
 
   }

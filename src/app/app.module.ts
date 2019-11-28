@@ -10,6 +10,9 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
@@ -36,7 +39,8 @@ import {ClipboardModule} from 'ngx-clipboard';
     AppRoutingModule,
     ReactiveFormsModule,
     CommonModule,
-    ClipboardModule
+    ClipboardModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     DashboardComponent,
