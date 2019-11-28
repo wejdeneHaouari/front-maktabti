@@ -5,6 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {AuthGuard} from './_guards/auth.guard';
+import {UserProfileComponent} from './pages/user-profile/user-profile.component';
+import {TablesComponent} from './pages/tables/tables.component';
+import {IconsComponent} from './pages/icons/icons.component';
+import {MapsComponent} from './pages/maps/maps.component';
+import {LoginComponent} from './pages/login/login.component';
+import {RegisterComponent} from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -15,19 +23,18 @@ const routes: Routes = [
     path: '',
     component: AdminLayoutComponent,
     children: [
-      {
-        path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-      }
+      { path: 'dashboard',      component: DashboardComponent , canActivate: [AuthGuard]},
+      { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard] },
+      { path: 'tables',         component: TablesComponent , canActivate: [AuthGuard]},
+      { path: 'icons',          component: IconsComponent, canActivate: [AuthGuard] },
+      { path: 'maps',           component: MapsComponent, canActivate: [AuthGuard], }
     ]
   }, {
     path: '',
     component: AuthLayoutComponent,
     children: [
-      {
-        path: '',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
-      }
+      { path: 'login',          component: LoginComponent },
+      { path: 'register',       component: RegisterComponent }
     ]
   }, {
     path: '**',
