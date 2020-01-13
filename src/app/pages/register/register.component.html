@@ -38,32 +38,58 @@
           <div class="text-center text-muted mb-4">
             <small>Or sign up with credentials</small>
           </div>
-          <form role="form">
+          <form role="form" [formGroup]="registerForm" id="register-account-form">
+            <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+              <div *ngIf="formControls.name.errors.required">Name is required</div>
+            </div>
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Name" type="text">
+
+                <input class="form-control" formControlName="name" placeholder="Name" type="text" required>
               </div>
             </div>
-            <div class="form-group">
+            <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+              <div *ngIf="formControls.email.errors.required">Email is required</div>
+            </div>
+            <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+              <div *ngIf="formControls.email.errors.pattern">Email invalid</div>
+            </div>
+            <div class="form-group"  >
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+
+                <input class="form-control" formControlName="email" placeholder="Email" type="email" required>
               </div>
+            </div>
+            <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+              <div *ngIf="formControls.password.errors.required">Email is required</div>
             </div>
             <div class="form-group">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Password" type="password">
+
+                <input class="form-control" formControlName="password" placeholder="Password" type="password" required>
               </div>
             </div>
-            <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
+            <div *ngIf="invalid" class="help-block">
+              <div >{{error}}</div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+
+                <input class="form-control" formControlName="repeatPassword" placeholder="repeatPass" type="password" required>
+              </div>
+            </div>
             <div class="row my-4">
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -75,7 +101,7 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Create account</button>
+              <button type="button" (click)="submit()" class="btn btn-primary mt-4">Create account</button>
             </div>
           </form>
         </div>

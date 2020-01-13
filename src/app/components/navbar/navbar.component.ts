@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import {SignInService} from '../../_services/sign-in.service';
+import {User} from '../../_models/user';
+import {SIGN_IN} from '../../../globals/global-variables';
 
 @Component({
   selector: 'app-navbar',
@@ -9,17 +12,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  currentUser: User;
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  constructor(location: Location,  private element: ElementRef, private router: Router,  private signInService: SignInService) {
     this.location = location;
+    this.signInService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    });
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
   }
-  getTitle(){
+  getTitle() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
     if(titlee.charAt(0) === '#'){
         titlee = titlee.slice( 1 );
@@ -31,6 +38,10 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+  logout() {
+    this.signInService.logout();
+    this.router.navigate([SIGN_IN]);
   }
 
 }
