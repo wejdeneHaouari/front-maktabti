@@ -16,6 +16,9 @@ export class CrudService {
   post(url, body) {
     return this.http.post<any>(url, body);
   }
+  postOpt(url, body, option) {
+    return this.http.post<any>(url, body,option);
+  }
   update(url, id, body) {
     return this.http.put<any>(url + '/' + id, body);
   }

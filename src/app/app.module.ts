@@ -29,6 +29,7 @@ import {ClipboardModule} from 'ngx-clipboard';
 import { CreateBookComponent } from './books/create-book/create-book.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import en from '@angular/common/locales/en';
+import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 
 registerLocaleData(en);
 
@@ -59,7 +60,8 @@ registerLocaleData(en);
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    CreateBookComponent
+    CreateBookComponent,
+    EnumToArrayPipe
   ],
   providers: [
     {

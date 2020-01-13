@@ -3,6 +3,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable } from 'rxjs';
 import {SignInService} from '../_services/sign-in.service';
 
+const TOKEN_HEADER_KEY = 'Authorization';
 
 
 @Injectable()
@@ -12,14 +13,11 @@ export class JwtInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // add authorization header with jwt token if available
     const currentUser = this.signInService.currentUserValue;
-    if (currentUser && localStorage.getItem('token')) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      });
+    let authReq = request;
+    const token = localStorage.getItem('token');
+    if (token !== null) {
+      authReq = request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token)});
     }
-
-    return next.handle(request);
+    return next.handle(authReq);
   }
 }
