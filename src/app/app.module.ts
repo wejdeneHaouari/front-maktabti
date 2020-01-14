@@ -1,20 +1,20 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {RouterModule} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {AppComponent} from './app.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule} from 'ngx-toastr';
 
-import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import {AppRoutingModule} from './app.routing';
+import {ComponentsModule} from './components/components.module';
 import {CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import {ErrorInterceptor} from './_guards/error.interceptor';
 import {JwtInterceptor} from './_guards/jwt.interceptor';
@@ -26,13 +26,15 @@ import {MapsComponent} from './pages/maps/maps.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {ClipboardModule} from 'ngx-clipboard';
-import { CreateBookComponent } from './books/create-book/create-book.component';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import {CreateBookComponent} from './books/create-book/create-book.component';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 import en from '@angular/common/locales/en';
-import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
-import { ListBookComponent } from './books/list-book/list-book.component';
-import { DefaultImageBookPipe } from './pipes/default-image-book.pipe';
-import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import {EnumToArrayPipe} from './pipes/enum-to-array.pipe';
+import {ListBookComponent} from './books/list-book/list-book.component';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
+import {CheckoutComponent} from './payement/checkout/checkout.component';
+
 registerLocaleData(en);
 
 
@@ -50,7 +52,8 @@ registerLocaleData(en);
     ClipboardModule,
     ToastrModule.forRoot(),
     NgZorroAntdModule,
-    NzPaginationModule
+    NzPaginationModule,
+    SharedModuleModule
   ],
   declarations: [
     DashboardComponent,
@@ -66,17 +69,18 @@ registerLocaleData(en);
     CreateBookComponent,
     EnumToArrayPipe,
     ListBookComponent,
-    DefaultImageBookPipe
+    CheckoutComponent,
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: NZ_I18N, useValue: en_US },
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: NZ_I18N, useValue: en_US},
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

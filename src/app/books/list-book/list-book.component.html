@@ -88,24 +88,12 @@
 
                               <div class="block2-btn-addcart w-size1 trans-0-4">
                                 <!-- Button -->
-                                <button (click)="addToCard()" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                <button (click)="addToCard(book)"
+                                        class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 
                                   Add to Cart
                                 </button>
-                                <nz-modal [(nzVisible)]="isVisible" nzTitle="add to card" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
-                                  <div class="swal-modal"><div class="swal-icon swal-icon--success">
 
-                                  </div><div class="swal-title" style="">
-                                   {{book.name}}
-                                  </div>
-                                    <div class="swal-text" style="">is added to cart !</div><div class="swal-footer"><div class="swal-button-container">
-
-
-
-
-
-                                  </div></div></div>
-                                </nz-modal>
                               </div>
                             </div>
                           </div>
@@ -116,7 +104,7 @@
                             </a>
 
                             <span class="block2-price m-text6 p-r-5">
-										{{book.price}} DNT
+										{{book.price}} TND
 									</span>
                           </div>
                         </div>

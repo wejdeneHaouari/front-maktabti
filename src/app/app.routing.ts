@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserProfileComponent} from './pages/user-profile/user-profile.component';
@@ -15,6 +15,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {CreateBookComponent} from './books/create-book/create-book.component';
 import {ListBookComponent} from './books/list-book/list-book.component';
+import {CheckoutComponent} from './payement/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
       { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
       { path: 'maps',           component: MapsComponent,  canActivate: [AuthGuard] },
       { path: 'create-book',     component: CreateBookComponent,  canActivate: [AuthGuard] },
-      {path: 'list-book', component: ListBookComponent, canActivate: [AuthGuard]}
+      {path: 'list-book', component: ListBookComponent, canActivate: [AuthGuard]},
+
     ]
   }, {
     path: '',
@@ -40,7 +42,9 @@ const routes: Routes = [
       { path: 'login',          component: LoginComponent },
       { path: 'register',       component: RegisterComponent }
     ]
-  }, {
+  },
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  {
     path: '**',
     redirectTo: 'dashboard'
   }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BookSubject} from '../../_models/enum/bookSubject';
 import {CrudService} from '../../_services/crud.service';
 import {API_URL, BOOK} from '../../globals/global-variables';
+import {Router} from '@angular/router';
+import {NotyService} from '../../_services/noty.service';
 
 @Component({
   selector: 'app-create-book',
@@ -17,7 +19,8 @@ export class CreateBookComponent implements OnInit {
   createBook: FormGroup;
   file: any;
   constructor(private formBuilder: FormBuilder,
-              private crudService: CrudService) { }
+              private crudService: CrudService, private router: Router, private noty: NotyService) {
+  }
 
   ngOnInit() {
     this.createBook = this.formBuilder.group({
@@ -54,9 +57,13 @@ export class CreateBookComponent implements OnInit {
     this.crudService.post(API_URL + BOOK, formData).subscribe(
       (response) => {
         console.log(response);
-        console.log("heee")
-      }, (error => console.log(error))
-    );
+        this.router.navigateByUrl('/list-book');
+        this.noty.displaySuccessNotification('Book add');
+      },
+      (error) => {
+        console.log(error);
+        this.noty.displayErrorNotification('Book add');
+      });
   }
 
 }
