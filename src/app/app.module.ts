@@ -1,20 +1,20 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {RouterModule} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {AppComponent} from './app.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
-import { ToastrModule } from 'ngx-toastr';
+import {ToastrModule} from 'ngx-toastr';
 
-import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
+import {AppRoutingModule} from './app.routing';
+import {ComponentsModule} from './components/components.module';
 import {CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import {ErrorInterceptor} from './_guards/error.interceptor';
 import {JwtInterceptor} from './_guards/jwt.interceptor';
@@ -26,19 +26,18 @@ import {MapsComponent} from './pages/maps/maps.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {ClipboardModule} from 'ngx-clipboard';
-import { CreateBookComponent } from './books/create-book/create-book.component';
-import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import {CreateBookComponent} from './books/create-book/create-book.component';
+import {en_US, NgZorroAntdModule, NZ_I18N} from 'ng-zorro-antd';
 import en from '@angular/common/locales/en';
-import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
-import { ListBookComponent } from './books/list-book/list-book.component';
-import { DefaultImageBookPipe } from './pipes/default-image-book.pipe';
-import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-import { DetailsBookComponent } from './books/details-book/details-book.component';
-import { ExchangeBookComponent } from './books/exchange-book/exchange-book.component';
-import { CardExchangeBookComponent } from './books/card-exchange-book/card-exchange-book.component';
-import { SendRequestComponent } from './books/send-request/send-request.component';
-import { RequestListComponent } from './books/request-list/request-list.component';
-import { ConfirmReceiveComponent } from './books/confirm-receive/confirm-receive.component';
+import {ListBookComponent} from './books/list-book/list-book.component';
+import {DefaultImageBookPipe} from './pipes/default-image-book.pipe';
+import {NzPaginationModule} from 'ng-zorro-antd/pagination';
+import {DetailsBookComponent} from './books/details-book/details-book.component';
+import {ExchangeBookComponent} from './books/exchange-book/exchange-book.component';
+import {CardExchangeBookComponent} from './books/card-exchange-book/card-exchange-book.component';
+import {SendRequestComponent} from './books/send-request/send-request.component';
+import {RequestListComponent} from './books/request-list/request-list.component';
+import {ConfirmReceiveComponent} from './books/confirm-receive/confirm-receive.component';
 import {EnumToArrayPipe} from './pipes/enum-to-array.pipe';
 import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
 import {CheckoutComponent} from './payement/checkout/checkout.component';
@@ -88,7 +87,7 @@ registerLocaleData(en);
     CreateChapterComponent,
     WriteChapterComponent,
     ListChapterComponent,
-    ReadChapterComponent
+    ReadChapterComponent,
     DefaultImageBookPipe,
     DetailsBookComponent,
     ExchangeBookComponent,

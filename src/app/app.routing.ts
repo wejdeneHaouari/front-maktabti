@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserProfileComponent} from './pages/user-profile/user-profile.component';
@@ -48,7 +48,7 @@ const routes: Routes = [
       {path: 'my-exchanges', component: CardExchangeBookComponent, canActivate: [AuthGuard]},
       {path: 'request', component: SendRequestComponent, canActivate:[AuthGuard] },
       {path: 'request/:id', component: RequestListComponent, canActivate: [AuthGuard]},
-      {path: 'confirm-exchange', component: ConfirmReceiveComponent, canActivate:[AuthGuard]}
+      {path: 'confirm-exchange', component: ConfirmReceiveComponent, canActivate: [AuthGuard]},
       {path: 'write-chapter/:id', component: WriteChapterComponent, canActivate: [AuthGuard]},
       {path: 'create-chapter', component: CreateChapterComponent, canActivate: [AuthGuard]},
       {path: 'list-chapter', component: ListChapterComponent, canActivate: [AuthGuard]},
