@@ -36,6 +36,7 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { DetailsBookComponent } from './books/details-book/details-book.component';
 import { ExchangeBookComponent } from './books/exchange-book/exchange-book.component';
 import { CardExchangeBookComponent } from './books/card-exchange-book/card-exchange-book.component';
+import { SendRequestComponent } from './books/send-request/send-request.component';
 registerLocaleData(en);
 
 
@@ -72,7 +73,8 @@ registerLocaleData(en);
     DefaultImageBookPipe,
     DetailsBookComponent,
     ExchangeBookComponent,
-    CardExchangeBookComponent
+    CardExchangeBookComponent,
+    SendRequestComponent
   ],
   providers: [
     {

@@ -1,13 +1,20 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
-      <!-- Card stats -->
+      <!-- Card stats -->  <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <a [routerLink]="['/request']" class="btn btn-info">Send Request</a>
+        </div>
+      </div>
+    </div>
 
     </div>
   </div>
 </div>
 <!-- Page content -->
 <div class="container-fluid mt--7">
+
   <!-- Table -->
   <div class="row">
     <div class="col">
@@ -23,7 +30,6 @@
               <th scope="col">Genre</th>
               <th scope="col">Author</th>
               <th scope="col">View Requests</th>
-              <th scope="col">Send a request</th>
             </tr>
             </thead>
             <tbody>
@@ -47,18 +53,9 @@
 
               </td>
               <td>
-               req
+                <a href="#!" class="btn btn-info">View Requests</a>
               </td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <span class="mr-2">60%</span>
-                  <div>
-                    <div class="progress">
-                      <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
-                  </div>
-                </div>
-              </td>
+
 
             </tr>
 

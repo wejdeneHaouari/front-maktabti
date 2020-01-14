@@ -5,3 +5,5 @@ export const DASHBORD = '/dashboard';
 export const BOOK = '/book';
 export const EXCHANGE_BOOK = '/exchange-book';
 export const MY_BOOKS = '/my-books';
+export const BOOK_REQUEST = '/exchange-books' ;
+export const SEND_REQUEST = '/send-request';
