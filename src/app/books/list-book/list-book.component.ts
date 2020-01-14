@@ -24,24 +24,22 @@ export class ListBookComponent implements OnInit {
 
   getBooks() {
     let params: any;
-    params = new HttpParams().set('page', this.currentPage.toString())
-      .set('size', this.sizePage.toString()).set('sort', this.sort.toString())
-    console.log(this.selectedCategory)
-    /*if (this.selectedCategory !== 'ALL' || this.selectedCategory) {
+    const selectedPage = this.currentPage - 1;
+    if (this.selectedCategory !== 'ALL') {
 
-      params = new HttpParams().set('page', this.currentPage.toString())
+      params = new HttpParams().set('page', selectedPage.toString())
         .set('size', this.sizePage.toString()).set('sort', this.sort.toString()).set('genre', this.selectedCategory);
     } else {
-      params = new HttpParams().set('page', this.currentPage.toString())
+      params = new HttpParams().set('page', selectedPage.toString())
         .set('size', this.sizePage.toString()).set('sort', this.sort.toString());
-    }*/
+    }
     console.log(params)
     this.crudService.getAll(API_URL + BOOK, params).subscribe(
       (response) => {
         this.books = response;
         console.log(this.books);
         this.currentPage = this.books.pageable.pageNumber + 1;
-        console.log(this.books.pageable.pageNumber)
+        console.log(this.books.pageable.pageNumber);
       },
       (error =>  {
         console.log(error);
@@ -49,14 +47,14 @@ export class ListBookComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.currentPage = 0;
+    this.currentPage = 1;
     this.sizePage = 6;
     this.selectedCategory = 'ALL';
   this.getBooks();
   }
 
-  paginate(page){
-    this.currentPage = page - 1;
+  paginate(page) {
+    this.currentPage = page ;
     this.getBooks();
   }
   addToCard(): void {
@@ -75,7 +73,14 @@ export class ListBookComponent implements OnInit {
 
   selectCategorty(category: string) {
     this.selectedCategory = category;
+    this.currentPage = 1;
     console.log(this.selectedCategory)
+    this.getBooks();
+  }
+
+  onSort(event) {
+    this.currentPage = 1;
+    this.sort = event.target.value;
     this.getBooks();
   }
 }
