@@ -5,6 +5,7 @@ import {CrudService} from '../../_services/crud.service';
 import {API_URL, BOOK} from '../../globals/global-variables';
 import {HttpParams} from '@angular/common/http';
 import {BookSubject} from '../../_models/enum/bookSubject';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-list-book',
@@ -18,11 +19,23 @@ export class ListBookComponent implements OnInit {
   sort = 'createdAt,desc';
   isVisible = false;
   categories = BookSubject;
+  selectedCategory = 'ALL';
   constructor(private crudService: CrudService) { }
 
   getBooks() {
-    const params = new HttpParams().set('page', this.currentPage.toString())
-      .set('size', this.sizePage.toString()).set('sort', this.sort.toString());
+    let params: any;
+    params = new HttpParams().set('page', this.currentPage.toString())
+      .set('size', this.sizePage.toString()).set('sort', this.sort.toString())
+    console.log(this.selectedCategory)
+    /*if (this.selectedCategory !== 'ALL' || this.selectedCategory) {
+
+      params = new HttpParams().set('page', this.currentPage.toString())
+        .set('size', this.sizePage.toString()).set('sort', this.sort.toString()).set('genre', this.selectedCategory);
+    } else {
+      params = new HttpParams().set('page', this.currentPage.toString())
+        .set('size', this.sizePage.toString()).set('sort', this.sort.toString());
+    }*/
+    console.log(params)
     this.crudService.getAll(API_URL + BOOK, params).subscribe(
       (response) => {
         this.books = response;
@@ -38,6 +51,7 @@ export class ListBookComponent implements OnInit {
   ngOnInit() {
     this.currentPage = 0;
     this.sizePage = 6;
+    this.selectedCategory = 'ALL';
   this.getBooks();
   }
 
@@ -57,5 +71,11 @@ export class ListBookComponent implements OnInit {
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
+  }
+
+  selectCategorty(category: string) {
+    this.selectedCategory = category;
+    console.log(this.selectedCategory)
+    this.getBooks();
   }
 }

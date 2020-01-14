@@ -30,7 +30,7 @@
 
                       <ul class="p-b-54">
                         <li class="p-t-4" *ngFor="let item of categories | enumToArray">
-                          <a href="#" class="s-text13 active1">
+                          <a (click)="selectCategorty(item.name)"  class="s-text13 active1">
                            {{item.name}}
                           </a>
                         </li>
@@ -62,10 +62,12 @@
                           </select>
                         </div>
                       </div>
-
-                      <span class="s-text8 p-t-5 p-b-5" *ngIf="books && books.pageable && books.totalElements">
+                      <div *ngIf="books">
+                 <span class="s-text8 p-t-5 p-b-5" *ngIf=" books.totalElements">
 						     	Showing {{books.pageable.offset  + books.numberOfElements}} of {{books.totalElements}} results
 					     	</span>
+                      </div>
+
                     </div>
 
                     <!-- Product -->
