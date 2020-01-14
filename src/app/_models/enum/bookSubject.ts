@@ -7,12 +7,5 @@ export enum BookSubject {
   Fiction,
   Horror,
   Literary ,
-  Literature,
-  Mystery ,
-  Crime,
-  Poetry,
-  Romance,
-  Fantasy,
-  Teen,
-  Westerns
+
 }

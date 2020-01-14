@@ -32,7 +32,7 @@
                       <label class="form-control-label" for="input-genre">Categories</label>
                       <!-- Category -->
                       <div class="sidebar-widget">
-                        <select formControlName= "genre" class="selectpicker default input-genre" name="input-genre" data-selected-text-format="count" title="All Categories" >
+                        <select formControlName= "genre" class="selectpicker default input-genre" id="input-genre" name="input-genre" data-selected-text-format="count" title="All Categories" >
                           <option *ngFor="let item of categories | enumToArray">{{item.name}}</option>
                         </select>
                       </div>
@@ -103,7 +103,7 @@
             </form>
             <div class="col-xl-12">
               <button type="submit" (click)="onSubmit()" class="button ripple-effect big margin-top-30" form="create-book-form">
-                <i class="icon-feather-plus"></i>cell a book</button>
+                <i class="icon-feather-plus"></i>add book</button>
             </div>
           </div>
         </div>

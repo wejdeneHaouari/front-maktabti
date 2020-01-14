@@ -46,11 +46,11 @@ export class CreateBookComponent implements OnInit {
     formData.append('image', this.file);
     formData.append('name', this.createBook.get('name').value);
     formData.append('author', this.createBook.get('author').value);
-    formData.append('publisher', this.createBook.get('publisher').value)
+    formData.append('publisher', this.createBook.get('publisher').value);
     formData.append('genre', this.createBook.get('genre').value);
     formData.append('price', this.createBook.get('price').value);
     formData.append('releaseDate', this.createBook.get('releaseDate').value);
-   formData.append('description', this.createBook.get('description').value)
+   formData.append('description', this.createBook.get('description').value);
     this.crudService.post(API_URL + BOOK, formData).subscribe(
       (response) => {
         console.log(response);

@@ -4,6 +4,7 @@ import {Book} from '../../_models/book';
 import {CrudService} from '../../_services/crud.service';
 import {API_URL, BOOK} from '../../globals/global-variables';
 import {HttpParams} from '@angular/common/http';
+import {BookSubject} from '../../_models/enum/bookSubject';
 
 @Component({
   selector: 'app-list-book',
@@ -16,6 +17,7 @@ export class ListBookComponent implements OnInit {
   sizePage: number;
   sort = 'createdAt,desc';
   isVisible = false;
+  categories = BookSubject;
   constructor(private crudService: CrudService) { }
 
   getBooks() {
@@ -34,8 +36,8 @@ export class ListBookComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.currentPage = 1;
-    this.sizePage = 5;
+    this.currentPage = 0;
+    this.sizePage = 6;
   this.getBooks();
   }
 
