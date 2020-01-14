@@ -5,6 +5,7 @@ import {SignInService} from '../../_services/sign-in.service';
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {API_URL, LIST_CHAPTERS} from '../../globals/global-variables';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-list-chapter',
@@ -19,7 +20,8 @@ export class ListChapterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.crudService.getAll(API_URL + LIST_CHAPTERS).subscribe(
+    let params = new HttpParams();
+    this.crudService.getAll(API_URL + LIST_CHAPTERS, params).subscribe(
       (response) => {
         this.chapters = response;
       },
@@ -29,7 +31,7 @@ export class ListChapterComponent implements OnInit {
     );
   }
 
-  onRead(chapter: Chapter) {
+  onRead(chapter: any) {
     console.log(chapter.content);
     this.router.navigate(['/read-chapter/', chapter.id]);
   }

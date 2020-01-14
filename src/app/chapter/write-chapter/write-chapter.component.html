@@ -18,7 +18,9 @@
                 <div>
                   <ckeditor [(ngModel)]="chaptercontent" formControlName="chapter" id="chapter" name="chapter">
                   </ckeditor>
-                  <button (click)="onClick()" type="submit">SAVE</button>
+                  <div>
+                    <button (click)="onClick()" class="btn btn-info" type="submit">SAVE</button>
+                </div>
                 </div>
               </form>
             </div>

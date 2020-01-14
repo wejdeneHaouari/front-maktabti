@@ -47,7 +47,8 @@ export class WriteChapterComponent implements OnInit {
 
     this.crudService.put(API_URL + CREATE_CHAPTER, chapterMv).subscribe(
       (response) => {
-        this.router.navigate(['/write-chapter/', response.id]);
+        //this.router.navigate(['/write-chapter/', response.id]);
+        this.router.navigate(['/list-chapter']);
       },
       (error) => {
         console.log(error);
