@@ -15,6 +15,9 @@ import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {CreateBookComponent} from './books/create-book/create-book.component';
 import {ListBookComponent} from './books/list-book/list-book.component';
+import {DetailsBookComponent} from './books/details-book/details-book.component';
+import {ExchangeBookComponent} from './books/exchange-book/exchange-book.component';
+import {CardExchangeBookComponent} from './books/card-exchange-book/card-exchange-book.component';
 
 const routes: Routes = [
   {
@@ -31,7 +34,10 @@ const routes: Routes = [
       { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
       { path: 'maps',           component: MapsComponent,  canActivate: [AuthGuard] },
       { path: 'create-book',     component: CreateBookComponent,  canActivate: [AuthGuard] },
-      {path: 'list-book', component: ListBookComponent, canActivate: [AuthGuard]}
+      {path: 'list-book', component: ListBookComponent, canActivate: [AuthGuard]},
+      {path: 'details-book/:id', component: DetailsBookComponent, canActivate: [AuthGuard]},
+      {path: 'exchange-book', component: ExchangeBookComponent, canActivate: [AuthGuard]},
+      {path: 'my-exchanges', component: CardExchangeBookComponent, canActivate: [AuthGuard]}
     ]
   }, {
     path: '',

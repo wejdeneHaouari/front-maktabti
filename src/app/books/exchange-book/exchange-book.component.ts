@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
 import {BookSubject} from '../../_models/enum/bookSubject';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {CrudService} from '../../_services/crud.service';
-import {API_URL, BOOK} from '../../globals/global-variables';
-import {Router, RouterLink} from '@angular/router';
+import {Router} from '@angular/router';
+import {API_URL, BOOK, EXCHANGE_BOOK} from '../../globals/global-variables';
 
 @Component({
-  selector: 'app-create-book',
-  templateUrl: './create-book.component.html',
-  styleUrls: ['./create-book.component.scss']
+  selector: 'app-exchange-book',
+  templateUrl: './exchange-book.component.html',
+  styleUrls: ['./exchange-book.component.scss']
 })
-export class CreateBookComponent implements OnInit {
+export class ExchangeBookComponent implements OnInit {
+
   date = null;
   dateFormat = 'yyyy/MM/dd';
   keys = Object.keys;
@@ -40,7 +41,7 @@ export class CreateBookComponent implements OnInit {
   onFileSelect(event) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-     this.file = file;
+      this.file = file;
     }
   }
   onSubmit() {
@@ -52,9 +53,10 @@ export class CreateBookComponent implements OnInit {
     formData.append('genre', this.createBook.get('genre').value);
     formData.append('price', this.createBook.get('price').value);
     formData.append('releaseDate', this.createBook.get('releaseDate').value);
-   formData.append('description', this.createBook.get('description').value);
-    this.crudService.post(API_URL + BOOK, formData).subscribe(
+    formData.append('description', this.createBook.get('description').value);
+    this.crudService.post(API_URL + EXCHANGE_BOOK, formData).subscribe(
       (response) => {
+        console.log(response)
         this.router.navigate(['/list-book']);
       }, (error => console.log(error))
     );

@@ -33,6 +33,9 @@ import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
 import { ListBookComponent } from './books/list-book/list-book.component';
 import { DefaultImageBookPipe } from './pipes/default-image-book.pipe';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { DetailsBookComponent } from './books/details-book/details-book.component';
+import { ExchangeBookComponent } from './books/exchange-book/exchange-book.component';
+import { CardExchangeBookComponent } from './books/card-exchange-book/card-exchange-book.component';
 registerLocaleData(en);
 
 
@@ -66,7 +69,10 @@ registerLocaleData(en);
     CreateBookComponent,
     EnumToArrayPipe,
     ListBookComponent,
-    DefaultImageBookPipe
+    DefaultImageBookPipe,
+    DetailsBookComponent,
+    ExchangeBookComponent,
+    CardExchangeBookComponent
   ],
   providers: [
     {

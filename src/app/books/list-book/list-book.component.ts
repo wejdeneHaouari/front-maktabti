@@ -34,7 +34,7 @@ export class ListBookComponent implements OnInit {
         .set('size', this.sizePage.toString()).set('sort', this.sort.toString());
     }
     console.log(params)
-    this.crudService.getAll(API_URL + BOOK, params).subscribe(
+    this.crudService.getAllWithParams(API_URL + BOOK, params).subscribe(
       (response) => {
         this.books = response;
         console.log(this.books);

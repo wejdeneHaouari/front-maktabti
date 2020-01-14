@@ -9,6 +9,9 @@ export class Book {
 
    name: string;
 
+   type: string;
+
+   description: string;
 
    genre: string;
 
