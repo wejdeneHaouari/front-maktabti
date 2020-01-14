@@ -42,23 +42,11 @@
                     <div class="flex-sb-m flex-w p-b-35">
                       <div class="flex-w">
                         <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-                          <select class="selection-2" name="sorting">
-                            <option>Default Sorting</option>
-                            <option>Popularity</option>
-                            <option>Price: low to high</option>
-                            <option>Price: high to low</option>
-                          </select>
-                        </div>
-
-                        <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
-                          <select class="selection-2" name="sorting">
-                            <option>Price</option>
-                            <option>$0.00 - $50.00</option>
-                            <option>$50.00 - $100.00</option>
-                            <option>$100.00 - $150.00</option>
-                            <option>$150.00 - $200.00</option>
-                            <option>$200.00+</option>
-
+                          <select class="selection-2" name="sorting" [ngModel]="sort" (change)="onSort($event)">
+                            <option value="price"  >Price: low to high</option>
+                            <option value="price,desc">Price: high to low</option>
+                            <option value="createdAt,desc">New</option>
+                            <option value="createdAt">Old</option>
                           </select>
                         </div>
                       </div>
@@ -102,7 +90,11 @@
                             <a href="#" class="block2-name dis-block s-text3 p-b-5">
                              {{book.name}}
                             </a>
-
+                            <div class="block2-txt p-t-20">
+                            <span class="block2-price m-text6 p-r-5">
+										{{book.genre | lowercase}}
+									</span>
+                            </div>
                             <span class="block2-price m-text6 p-r-5">
 										{{book.price}} TND
 									</span>
@@ -115,7 +107,7 @@
                     </div>
 
                     <!-- Pagination -->
-                    <nz-pagination [nzPageIndex]=currentPage [nzTotal]=books.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
+                    <nz-pagination [nzPageIndex]=currentPage  [nzTotal]=books.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
                   </div>
                 </div>
               </div>
