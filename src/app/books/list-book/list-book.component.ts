@@ -15,6 +15,7 @@ export class ListBookComponent implements OnInit {
   currentPage: number;
   sizePage: number;
   sort = 'createdAt,desc';
+  isVisible = false;
   constructor(private crudService: CrudService) { }
 
   getBooks() {
@@ -42,5 +43,17 @@ export class ListBookComponent implements OnInit {
     this.currentPage = page - 1;
     this.getBooks();
   }
+  addToCard(): void {
+    this.isVisible = true;
+  }
 
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
+  }
 }
