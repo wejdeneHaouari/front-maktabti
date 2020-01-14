@@ -21,6 +21,11 @@ import {CardExchangeBookComponent} from './books/card-exchange-book/card-exchang
 import {SendRequestComponent} from './books/send-request/send-request.component';
 import {RequestListComponent} from './books/request-list/request-list.component';
 import {ConfirmReceiveComponent} from './books/confirm-receive/confirm-receive.component';
+import {CheckoutComponent} from './payement/checkout/checkout.component';
+import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
+import {CreateChapterComponent} from './chapter/create-chapter/create-chapter.component';
+import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
+import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
 
 const routes: Routes = [
   {
@@ -44,6 +49,10 @@ const routes: Routes = [
       {path: 'request', component: SendRequestComponent, canActivate:[AuthGuard] },
       {path: 'request/:id', component: RequestListComponent, canActivate: [AuthGuard]},
       {path: 'confirm-exchange', component: ConfirmReceiveComponent, canActivate:[AuthGuard]}
+      {path: 'write-chapter/:id', component: WriteChapterComponent, canActivate: [AuthGuard]},
+      {path: 'create-chapter', component: CreateChapterComponent, canActivate: [AuthGuard]},
+      {path: 'list-chapter', component: ListChapterComponent, canActivate: [AuthGuard]},
+      {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]}
     ]
   }, {
     path: '',
@@ -52,7 +61,9 @@ const routes: Routes = [
       { path: 'login',          component: LoginComponent },
       { path: 'register',       component: RegisterComponent }
     ]
-  }, {
+  },
+  {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+  {
     path: '**',
     redirectTo: 'dashboard'
   }

@@ -39,6 +39,15 @@ import { CardExchangeBookComponent } from './books/card-exchange-book/card-excha
 import { SendRequestComponent } from './books/send-request/send-request.component';
 import { RequestListComponent } from './books/request-list/request-list.component';
 import { ConfirmReceiveComponent } from './books/confirm-receive/confirm-receive.component';
+import {EnumToArrayPipe} from './pipes/enum-to-array.pipe';
+import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
+import {CheckoutComponent} from './payement/checkout/checkout.component';
+import {CreateChapterComponent} from './chapter/create-chapter/create-chapter.component';
+import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
+import {CKEditorModule} from 'ng2-ckeditor';
+import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
+import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
+
 registerLocaleData(en);
 
 
@@ -56,7 +65,10 @@ registerLocaleData(en);
     ClipboardModule,
     ToastrModule.forRoot(),
     NgZorroAntdModule,
-    NzPaginationModule
+    NzPaginationModule,
+    SharedModuleModule,
+    CKEditorModule,
+    FormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -69,9 +81,14 @@ registerLocaleData(en);
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    CreateBookComponent,
     EnumToArrayPipe,
     ListBookComponent,
+    CheckoutComponent,
+    CreateBookComponent,
+    CreateChapterComponent,
+    WriteChapterComponent,
+    ListChapterComponent,
+    ReadChapterComponent
     DefaultImageBookPipe,
     DetailsBookComponent,
     ExchangeBookComponent,
@@ -85,10 +102,11 @@ registerLocaleData(en);
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { provide: NZ_I18N, useValue: en_US },
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: NZ_I18N, useValue: en_US},
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

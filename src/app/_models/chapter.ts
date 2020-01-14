@@ -24,4 +24,6 @@ export class Chapter {
 
 
   user: User;
+
+  content: String;
 }
