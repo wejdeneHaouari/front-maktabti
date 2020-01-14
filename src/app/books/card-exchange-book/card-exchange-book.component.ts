@@ -4,6 +4,7 @@ import {Book} from '../../_models/book';
 import {CrudService} from '../../_services/crud.service';
 import {HttpParams} from '@angular/common/http';
 import {API_URL, BOOK, MY_BOOKS} from '../../globals/global-variables';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-card-exchange-book',
@@ -15,7 +16,8 @@ export class CardExchangeBookComponent implements OnInit {
   currentPage: number;
   sizePage: number;
   sort = 'createdAt,desc';
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService,
+              private router: Router) { }
 
   ngOnInit() {
     this.currentPage = 1;
@@ -45,5 +47,9 @@ export class CardExchangeBookComponent implements OnInit {
   paginate(page: number) {
     this.currentPage = page ;
     this.getBooks();
+  }
+
+  viewRequest(book: Book) {
+    this.router.navigate(['request', book.id] );
   }
 }

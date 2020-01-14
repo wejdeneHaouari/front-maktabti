@@ -7,3 +7,7 @@ export const EXCHANGE_BOOK = '/exchange-book';
 export const MY_BOOKS = '/my-books';
 export const BOOK_REQUEST = '/exchange-books' ;
 export const SEND_REQUEST = '/send-request';
+export const BOOK_REQUESTS = '/book-request';
+export const ACCEPTE_REQUESTS = '/accept-request';
+export const BOOK_IN_PROGRESS = '/book-in-progress';
+export const CONFIRM_EXCHANGE = '/confirm-request';

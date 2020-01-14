@@ -57,7 +57,7 @@ export class ExchangeBookComponent implements OnInit {
     this.crudService.post(API_URL + EXCHANGE_BOOK, formData).subscribe(
       (response) => {
         console.log(response)
-        this.router.navigate(['/list-book']);
+        this.router.navigate(['/my-exchanges']);
       }, (error => console.log(error))
     );
   }

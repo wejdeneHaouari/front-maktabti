@@ -37,6 +37,8 @@ import { DetailsBookComponent } from './books/details-book/details-book.componen
 import { ExchangeBookComponent } from './books/exchange-book/exchange-book.component';
 import { CardExchangeBookComponent } from './books/card-exchange-book/card-exchange-book.component';
 import { SendRequestComponent } from './books/send-request/send-request.component';
+import { RequestListComponent } from './books/request-list/request-list.component';
+import { ConfirmReceiveComponent } from './books/confirm-receive/confirm-receive.component';
 registerLocaleData(en);
 
 
@@ -74,7 +76,9 @@ registerLocaleData(en);
     DetailsBookComponent,
     ExchangeBookComponent,
     CardExchangeBookComponent,
-    SendRequestComponent
+    SendRequestComponent,
+    RequestListComponent,
+    ConfirmReceiveComponent
   ],
   providers: [
     {

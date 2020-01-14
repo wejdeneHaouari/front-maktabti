@@ -13,8 +13,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
     { path: '/list-book', title: 'Buy Books',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/exchange-book', title: 'Exchange book',  icon:'ni-circle-08 text-pink', class: '' },
-    { path: '/my-exchanges', title: 'Exchange book',  icon:'ni-circle-08 text-pink', class: '' }
+    { path: '/exchange-book', title: 'put book to exchange',  icon:'ni-circle-08 text-pink', class: '' },
+    { path: '/my-exchanges', title: 'Exchanged books',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/confirm-exchange', title: 'Confirm receive',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 
 @Component({
