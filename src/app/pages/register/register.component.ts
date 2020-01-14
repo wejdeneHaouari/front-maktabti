@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CrudService} from '../../_services/crud.service';
-import {eraseStyles} from '@angular/animations/browser/src/util';
-import {API_URL, SIGN_UP} from '../../../globals/global-variables';
+import {API_URL, SIGN_UP} from '../../globals/global-variables';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 

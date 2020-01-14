@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule,} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
+import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserProfileComponent} from './pages/user-profile/user-profile.component';
@@ -14,6 +14,10 @@ import {MapsComponent} from './pages/maps/maps.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {CreateBookComponent} from './books/create-book/create-book.component';
+import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
+import {CreateChapterComponent} from './chapter/create-chapter/create-chapter.component';
+import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
+import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
 
 const routes: Routes = [
   {
@@ -29,7 +33,11 @@ const routes: Routes = [
       { path: 'tables',         component: TablesComponent,  canActivate: [AuthGuard] },
       { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
       { path: 'maps',           component: MapsComponent,  canActivate: [AuthGuard] },
-      { path: 'create-book',           component: CreateBookComponent,  canActivate: [AuthGuard] }
+      {path: 'create-book', component: CreateBookComponent, canActivate: [AuthGuard]},
+      {path: 'write-chapter/:id', component: WriteChapterComponent, canActivate: [AuthGuard]},
+      {path: 'create-chapter', component: CreateChapterComponent, canActivate: [AuthGuard]},
+      {path: 'list-chapter', component: ListChapterComponent, canActivate: [AuthGuard]},
+      {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]}
     ]
   }, {
     path: '',
@@ -48,7 +56,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
+    RouterModule.forRoot(routes, {
       useHash: true
     })
   ],

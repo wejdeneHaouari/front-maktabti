@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SignInService} from '../../_services/sign-in.service';
-import {DASHBORD} from '../../../globals/global-variables';
+import {DASHBORD} from '../../globals/global-variables';
 import {first} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 
