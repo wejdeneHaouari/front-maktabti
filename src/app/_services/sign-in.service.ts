@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
-import {API_URL, SIGN_IN} from '../../globals/global-variables';
+import {API_URL, SIGN_IN} from '../globals/global-variables';
 
 
 

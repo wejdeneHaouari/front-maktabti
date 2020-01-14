@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {BookSubject} from '../../_models/enum/bookSubject';
 import {CrudService} from '../../_services/crud.service';
-import {API_URL, BOOK} from '../../../globals/global-variables';
+import {API_URL, BOOK} from '../../globals/global-variables';
 
 @Component({
   selector: 'app-create-book',

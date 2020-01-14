@@ -5,6 +5,7 @@ export class Book {
 
    id: number;
 
+  photoPath: string;
 
    name: string;
 

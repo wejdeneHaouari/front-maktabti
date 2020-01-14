@@ -14,6 +14,7 @@ import {MapsComponent} from './pages/maps/maps.component';
 import {LoginComponent} from './pages/login/login.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {CreateBookComponent} from './books/create-book/create-book.component';
+import {ListBookComponent} from './books/list-book/list-book.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: 'tables',         component: TablesComponent,  canActivate: [AuthGuard] },
       { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
       { path: 'maps',           component: MapsComponent,  canActivate: [AuthGuard] },
-      { path: 'create-book',           component: CreateBookComponent,  canActivate: [AuthGuard] }
+      { path: 'create-book',     component: CreateBookComponent,  canActivate: [AuthGuard] },
+      {path: 'list-book', component: ListBookComponent, canActivate: [AuthGuard]}
     ]
   }, {
     path: '',

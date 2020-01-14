@@ -7,8 +7,8 @@ import {HttpClient} from '@angular/common/http';
 export class CrudService {
 
   constructor(private http: HttpClient) { }
-  getAll(url) {
-    return this.http.get<any>(url);
+  getAll(url, params) {
+    return this.http.get<any>(url, {params});
   }
   getOne(url, id) {
     return this.http.get<any>(url + '/' + id);

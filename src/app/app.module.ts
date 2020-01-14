@@ -30,7 +30,9 @@ import { CreateBookComponent } from './books/create-book/create-book.component';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
 import en from '@angular/common/locales/en';
 import { EnumToArrayPipe } from './pipes/enum-to-array.pipe';
-
+import { ListBookComponent } from './books/list-book/list-book.component';
+import { DefaultImageBookPipe } from './pipes/default-image-book.pipe';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 registerLocaleData(en);
 
 
@@ -47,7 +49,8 @@ registerLocaleData(en);
     CommonModule,
     ClipboardModule,
     ToastrModule.forRoot(),
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    NzPaginationModule
   ],
   declarations: [
     DashboardComponent,
@@ -61,7 +64,9 @@ registerLocaleData(en);
     AdminLayoutComponent,
     AuthLayoutComponent,
     CreateBookComponent,
-    EnumToArrayPipe
+    EnumToArrayPipe,
+    ListBookComponent,
+    DefaultImageBookPipe
   ],
   providers: [
     {

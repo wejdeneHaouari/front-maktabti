@@ -4,7 +4,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 import {SignInService} from '../../_services/sign-in.service';
 import {User} from '../../_models/user';
-import {SIGN_IN} from '../../../globals/global-variables';
+import {SIGN_IN} from '../../globals/global-variables';
 
 @Component({
   selector: 'app-navbar',
