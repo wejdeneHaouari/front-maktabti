@@ -1,7 +1,7 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { ROUTES } from '../sidebar/sidebar.component';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { Router } from '@angular/router';
+import {Component, ElementRef, OnInit} from '@angular/core';
+import {ROUTES} from '../sidebar/sidebar.component';
+import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 import {SignInService} from '../../_services/sign-in.service';
 import {User} from '../../_models/user';
 import {SIGN_IN} from '../../globals/global-variables';
@@ -32,8 +32,8 @@ export class NavbarComponent implements OnInit {
         titlee = titlee.slice( 1 );
     }
 
-    for(var item = 0; item < this.listTitles.length; item++){
-        if(this.listTitles[item].path === titlee){
+    for (let item = 0; item < this.listTitles.length; item++) {
+      if (this.listTitles[item].path === titlee) {
             return this.listTitles[item].title;
         }
     }
