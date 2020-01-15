@@ -5,6 +5,7 @@ import {CrudService} from '../../_services/crud.service';
 import {API_URL, CREATE_CHAPTER} from '../../globals/global-variables';
 import {Chapter} from '../../_models/chapter';
 import {SignInService} from '../../_services/sign-in.service';
+import {BookSubject} from '../../_models/enum/bookSubject';
 
 @Component({
   selector: 'app-create-chapter',
@@ -16,7 +17,8 @@ export class CreateChapterComponent implements OnInit {
   chapter: Chapter = new Chapter();
   formGroup: FormGroup;
   private chapterJson: any;
-
+  categories = BookSubject;
+  dateFormat = 'yyyy/MM/dd';
   constructor(private crudService: CrudService, private signInService: SignInService, private formBuilder: FormBuilder, private router: Router) {
   }
 

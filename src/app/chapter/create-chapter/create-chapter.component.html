@@ -31,22 +31,17 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="form-control-label" for="input-genre">Genre</label>
-                      <input class="form-control form-control-alternative" formControlName="genre" id="input-genre"
-                             name="genre" type="genre">
+                      <label class="form-control-label" for="input-genre">Categories</label>
+                      <!-- Category -->
+                      <div class="sidebar-widget">
+                        <select formControlName= "genre" class="selectpicker default input-genre" id="input-genre" name="input-genre" data-selected-text-format="count" title="All Categories" >
+                          <option *ngFor="let item of categories | enumToArray">{{item.name}}</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-lg-8">
-                    <div class="form-group">
-                      <label class="form-control-label" for="input-price">Price</label>
-                      <input class="form-control form-control-alternative" formControlName="price" id="input-price"
-                             name="price" type="number">
-                    </div>
-                  </div>
 
-                </div>
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">

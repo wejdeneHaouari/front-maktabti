@@ -55,7 +55,7 @@ export class ListBookComponent implements OnInit {
 
   ngOnInit() {
     this.currentPage = 1;
-    this.sizePage = 6;
+    this.sizePage = 3;
     this.selectedCategory = 'ALL';
     this.getBooks();
   }
