@@ -36,7 +36,7 @@ const routes: Routes = [
     path: '',
     component: AdminLayoutComponent,
     children: [
-      { path: 'dashboard',      component: DashboardComponent,  canActivate: [AuthGuard] },
+
       { path: 'user-profile',   component: UserProfileComponent,  canActivate: [AuthGuard]},
       { path: 'tables',         component: TablesComponent,  canActivate: [AuthGuard] },
       { path: 'icons',          component: IconsComponent,  canActivate: [AuthGuard] },
@@ -65,7 +65,7 @@ const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'list-book'
   }
 ];
 
