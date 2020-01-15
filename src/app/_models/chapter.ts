@@ -1,4 +1,5 @@
 import {User} from './user';
+import {Story} from './story';
 
 export class Chapter {
 
@@ -7,13 +8,7 @@ export class Chapter {
 
   name: string;
 
-
-  genre: string;
-
-
-  price: number;
-
-
+  numero: number;
   releaseDate: string;
 
 
@@ -23,7 +18,7 @@ export class Chapter {
   updatedAt: Date;
 
 
-  user: User;
+  story: Story;
 
-  content: String;
+  content: string;
 }

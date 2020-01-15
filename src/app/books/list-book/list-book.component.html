@@ -107,7 +107,7 @@
                     </div>
 
                     <!-- Pagination -->
-                    <nz-pagination [nzPageIndex]=currentPage  [nzTotal]=books.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
+                    <nz-pagination *ngIf="books" [nzPageIndex]=currentPage  [nzTotal]=books.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
                   </div>
                 </div>
               </div>

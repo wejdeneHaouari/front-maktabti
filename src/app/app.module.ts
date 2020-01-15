@@ -39,12 +39,17 @@ import {RequestListComponent} from './books/request-list/request-list.component'
 import {ConfirmReceiveComponent} from './books/confirm-receive/confirm-receive.component';
 import {EnumToArrayPipe} from './pipes/enum-to-array.pipe';
 import {CheckoutComponent} from './payement/checkout/checkout.component';
-import {CreateChapterComponent} from './chapter/create-chapter/create-chapter.component';
+import {CreateChapterComponent} from './stories/create-chapter/create-chapter.component';
 import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
 import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
 import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
+import { CreateStoryComponent } from './stories/create-story/create-story.component';
+import { ListStoryComponent } from './stories/list-story/list-story.component';
+import { ListChaptersStoryComponent } from './stories/list-chapters-story/list-chapters-story.component';
+import { DetailsChapterComponent } from './stories/details-chapter/details-chapter.component';
+import { KeepHtmlPipe } from './pipes/keep-html.pipe';
 
 
 
@@ -95,7 +100,12 @@ registerLocaleData(en);
     CardExchangeBookComponent,
     SendRequestComponent,
     RequestListComponent,
-    ConfirmReceiveComponent
+    ConfirmReceiveComponent,
+    CreateStoryComponent,
+    ListStoryComponent,
+    ListChaptersStoryComponent,
+    DetailsChapterComponent,
+    KeepHtmlPipe
   ],
   providers: [
     {

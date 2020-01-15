@@ -14,3 +14,7 @@ export const ACCEPTE_REQUESTS = '/accept-request';
 export const BOOK_IN_PROGRESS = '/book-in-progress';
 export const CONFIRM_EXCHANGE = '/confirm-request';
 export const USER = '/user';
+export const STORY = '/story' ;
+export const MY_STORIES = '/my-stories';
+export const CHAPTERS_STORY = '/chapters-story';
+export const CHAPTER = '/chapter';
