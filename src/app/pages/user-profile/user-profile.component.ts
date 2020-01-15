@@ -53,7 +53,6 @@ export class UserProfileComponent implements OnInit {
     formData.append('postalCode', this.updateForm.get('postalCode').value);
     formData.append('aboutMe', this.updateForm.get('aboutMe').value);
     formData.append('country', this.updateForm.get('country').value);
-    console.log('AAAAA', formData);
     this.crudService.put(API_URL + USER, formData).subscribe(
       (response) => {
         this.router.navigate(['']);

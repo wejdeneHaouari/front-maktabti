@@ -48,6 +48,7 @@ export class SignInService {
   refreshUserData(response) {
     console.log('CALLLLLLL');
     sessionStorage.setItem('currentUser', JSON.stringify(response));
+    console.log(sessionStorage.getItem('currentUser'));
     this.currentUserSubject.next(response);
   }
 
