@@ -3,14 +3,13 @@ export class User {
   username: string;
   name: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  imageUrl: string;
   role: string;
   email: string;
   address: string;
   city?: string;
-  codePostal?: string;
+  postalCode?: string;
   numTel?: string;
-  address2?: string;
+  aboutMe: string;
   country?: string;
 }

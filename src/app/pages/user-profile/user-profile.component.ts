@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CrudService} from '../../_services/crud.service';
 import {User} from '../../_models/user';
-import {API_URL} from '../../globals/global-variables';
+import {API_URL, USER} from '../../globals/global-variables';
 import {SignInService} from '../../_services/sign-in.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,7 +14,9 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class UserProfileComponent implements OnInit {
   updateForm: FormGroup;
   user: User;
-  constructor(private signInService: SignInService, private formBuilder: FormBuilder) {
+  private file: any;
+
+  constructor(private signInService: SignInService, private formBuilder: FormBuilder, private crudService: CrudService, private router: Router) {
     this.signInService.currentUser.subscribe(user => {
       this.user = user;
     });
@@ -21,16 +24,44 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.updateForm = this.formBuilder.group({
-      id: this.user.id,
       name: this.user.name || '',
       email: this.user.email,
       address: this.user.address,
-      birthDate: '',
+      password: '',
       aboutMe: '',
-    })
+      city: '',
+      country: '',
+      postalCode: '',
+    });
   }
 
-  editProfile() {
-
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.file = file;
+    }
   }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('image', this.file);
+    formData.append('name', this.updateForm.get('name').value);
+    formData.append('email', this.updateForm.get('email').value);
+    formData.append('password', this.updateForm.get('password').value);
+    formData.append('address', this.updateForm.get('address').value);
+    formData.append('city', this.updateForm.get('city').value);
+    formData.append('postalCode', this.updateForm.get('postalCode').value);
+    formData.append('aboutMe', this.updateForm.get('aboutMe').value);
+    formData.append('country', this.updateForm.get('country').value);
+    console.log('AAAAA', formData);
+    this.crudService.put(API_URL + USER, formData).subscribe(
+      (response) => {
+        this.router.navigate(['']);
+        this.signInService.refreshUserData(response);
+      }, (error => {
+        console.log(error);
+        this.router.navigate(['']);
+      }));
+  }
+
 }

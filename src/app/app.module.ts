@@ -47,7 +47,6 @@ import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.componen
 import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
 
 
-
 registerLocaleData(en);
 
 
@@ -95,7 +94,7 @@ registerLocaleData(en);
     CardExchangeBookComponent,
     SendRequestComponent,
     RequestListComponent,
-    ConfirmReceiveComponent
+    ConfirmReceiveComponent,
   ],
   providers: [
     {

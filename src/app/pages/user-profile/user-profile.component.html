@@ -7,7 +7,6 @@
       <div class="col-lg-7 col-md-10">
         <h1 class="display-2 text-white">Hello {{user.name}}</h1>
         <p class="text-white mt-0 mb-5">Welcome to your profile page</p>
-        <a class="btn btn-info" (click)="editProfile()">Edit profile</a>
       </div>
     </div>
   </div>
@@ -19,17 +18,15 @@
         <div class="row justify-content-center">
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
-              <a href="javascript:void(0)">
-                <img src="assets/img/theme/default.jpg" class="rounded-circle">
+              <input #upload (change)="onFileSelect($event)" accept="image/*" id="upload" style="display: none"
+                     type="file"/>
+              <a (click)="upload.click()">
+                <img class="rounded-circle" src="{{user.imageUrl | defaultImageUser}}">
               </a>
             </div>
           </div>
         </div>
         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-          <div class="d-flex justify-content-between">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">Connect</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
-          </div>
         </div>
         <div class="card-body pt-0 pt-md-4">
           <div class="row">
@@ -63,30 +60,43 @@
               <h3 class="mb-0">My account</h3>
             </div>
             <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+              <button #submit (click)="onSubmit()" class=" uploadButton-input ripple-effect big margin-top-30"
+                      form="update-user-form" style="display: none" type="submit"></button>
+              <a (click)="submit.click()" class="btn btn-sm btn-white">Update Informations</a>
             </div>
           </div>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="updateForm" id=update-user-form>
             <h6 class="heading-small text-muted mb-4">User information</h6>
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="form-control-label" for="input-username">Username</label>
-                    <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="{{user.name}}">
+                    <label class="form-control-label" for="input-name">Name</label>
+                    <input class="form-control form-control-alternative" formControlName="name" id="input-name"
+                           placeholder="{{user.name}}" required type="text">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">Email address</label>
-                    <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="{{user.email}}">
+                    <input class="form-control form-control-alternative" formControlName="email" id="input-email"
+                           placeholder="{{user.email}}" required type="email">
                   </div>
                 </div>
               </div>
-
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-password">Password</label>
+                    <input class="form-control form-control-alternative" formControlName="password" id="input-password"
+                           placeholder="password" type="password">
+                  </div>
+                </div>
+              </div>
             </div>
+
             <hr class="my-4" />
             <!-- Address -->
             <h6 class="heading-small text-muted mb-4">Contact information</h6>
@@ -95,7 +105,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-address">Address</label>
-                    <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address"  type="text">
+                    <input class="form-control form-control-alternative" formControlName="address" id="input-address"
+                           placeholder="Home Address" type="text" value="{{user.address}}">
                   </div>
                 </div>
               </div>
@@ -103,19 +114,22 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-city">City</label>
-                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" >
+                    <input class="form-control form-control-alternative" formControlName="city" id="input-city"
+                           placeholder="City" type="text" value="{{user.city}}">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country">Country</label>
-                    <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" >
+                    <input class="form-control form-control-alternative" formControlName="country" id="input-country"
+                           placeholder="Country" type="text" value="{{user.country}}">
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-country">Postal code</label>
-                    <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                    <input class="form-control form-control-alternative" formControlName="postalCode"
+                           id="input-postal-code" placeholder="Postal code" type="text" value="{{user.postalCode}}">
                   </div>
                 </div>
               </div>
@@ -126,10 +140,13 @@
             <div class="pl-lg-4">
               <div class="form-group">
                 <label>About Me</label>
-                <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ..."></textarea>
+                <textarea class="form-control form-control-alternative" formControlName="aboutMe" id="input-aboutMe"
+                          placeholder="A few words about you ..." rows="4" value="{{user.aboutMe}}"></textarea>
               </div>
+
             </div>
           </form>
+
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth-layout/auth-layout.component';
-import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {AuthGuard} from './_guards/auth.guard';
 import {UserProfileComponent} from './pages/user-profile/user-profile.component';
 import {TablesComponent} from './pages/tables/tables.component';
@@ -30,7 +29,7 @@ import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.componen
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'list-book',
     pathMatch: 'full',
   }, {
     path: '',

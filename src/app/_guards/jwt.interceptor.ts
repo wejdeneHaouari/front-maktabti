@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {SignInService} from '../_services/sign-in.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
@@ -14,7 +14,7 @@ export class JwtInterceptor implements HttpInterceptor {
     // add authorization header with jwt token if available
     const currentUser = this.signInService.currentUserValue;
     let authReq = request;
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (token !== null) {
       authReq = request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token)});
     }

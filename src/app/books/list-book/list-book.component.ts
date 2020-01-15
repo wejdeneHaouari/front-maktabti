@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ListReq} from '../../_models/request/ListReq';
 import {Book} from '../../_models/book';
 import {CrudService} from '../../_services/crud.service';
@@ -66,7 +66,7 @@ export class ListBookComponent implements OnInit {
   }
 
   addToCard(book): void {
-    if (localStorage.getItem('currentUser') === null) {
+    if (sessionStorage.getItem('currentUser') === null) {
       this.router.navigate(['/sign-in']);
 
     } else {
