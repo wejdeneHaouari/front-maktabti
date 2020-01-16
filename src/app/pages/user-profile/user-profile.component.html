@@ -21,7 +21,10 @@
               <input #upload (change)="onFileSelect($event)" accept="image/*" id="upload" style="display: none"
                      type="file"/>
               <a (click)="upload.click()">
-                <img class="rounded-circle" src="{{user.imageUrl | defaultImageUser}}">
+                <img class="rounded-circle img" src="{{user.imageUrl | defaultImageUser}}"
+                     default="../../../assets/images/books/default-user.jpg"
+
+                >
               </a>
             </div>
           </div>

@@ -66,7 +66,10 @@
                         <!-- Block2 -->
                         <div class="block2">
                           <div class="block2-img wrap-pic-w of-hidden pos-relative">
-                            <img src= "{{book.photoPath | defaultImageBook}}" style=" border: 1px ;height:210px!important;width:200px!important;" alt="IMG-PRODUCT">
+                            <img src= "{{book.photoPath | defaultImageBook}}"
+                                 default="../../../assets/images/books/default-book.jfif"
+                                 class="img"
+                                 style=" border: 1px ;height:210px!important;width:200px!important;" alt="IMG-PRODUCT">
 
                             <div class="block2-overlay trans-0-4">
                               <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

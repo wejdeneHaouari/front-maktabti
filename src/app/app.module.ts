@@ -42,14 +42,13 @@ import {CheckoutComponent} from './payement/checkout/checkout.component';
 import {CreateChapterComponent} from './stories/create-chapter/create-chapter.component';
 import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
 import {CKEditorModule} from 'ng2-ckeditor';
-import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
-import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
 import {SharedModuleModule} from './_shared/shared-module/shared-module.module';
 import { CreateStoryComponent } from './stories/create-story/create-story.component';
 import { ListStoryComponent } from './stories/list-story/list-story.component';
 import { ListChaptersStoryComponent } from './stories/list-chapters-story/list-chapters-story.component';
 import { DetailsChapterComponent } from './stories/details-chapter/details-chapter.component';
 import { KeepHtmlPipe } from './pipes/keep-html.pipe';
+import { DefaultImageNotExistDirective } from './directives/default-image-not-exist.directive';
 
 
 
@@ -93,8 +92,6 @@ registerLocaleData(en);
     CreateBookComponent,
     CreateChapterComponent,
     WriteChapterComponent,
-    ListChapterComponent,
-    ReadChapterComponent,
     DetailsBookComponent,
     ExchangeBookComponent,
     CardExchangeBookComponent,
@@ -105,7 +102,8 @@ registerLocaleData(en);
     ListStoryComponent,
     ListChaptersStoryComponent,
     DetailsChapterComponent,
-    KeepHtmlPipe
+    KeepHtmlPipe,
+    DefaultImageNotExistDirective
   ],
   providers: [
     {

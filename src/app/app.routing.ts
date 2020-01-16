@@ -23,8 +23,6 @@ import {ConfirmReceiveComponent} from './books/confirm-receive/confirm-receive.c
 import {CheckoutComponent} from './payement/checkout/checkout.component';
 import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
 import {CreateChapterComponent} from './stories/create-chapter/create-chapter.component';
-import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
-import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
 import {CreateStoryComponent} from './stories/create-story/create-story.component';
 import {ListStoryComponent} from './stories/list-story/list-story.component';
 import {ListChaptersStoryComponent} from './stories/list-chapters-story/list-chapters-story.component';
@@ -56,7 +54,6 @@ const routes: Routes = [
       {path: 'create-chapter', component: CreateChapterComponent, canActivate: [AuthGuard]},
       {path: 'create-story', component: CreateStoryComponent, canActivate: [AuthGuard]},
       {path: 'story/chapters/:id', component: ListChaptersStoryComponent, canActivate: [AuthGuard]},
-      {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]},
       {path: 'list-story', component: ListStoryComponent, canActivate: [AuthGuard]},
       {path: 'read-story', component: ListStoryComponent, canActivate: [AuthGuard]},
       {path: 'story/:idStory/chapter/:id', component: DetailsChapterComponent, canActivate: [AuthGuard]}
