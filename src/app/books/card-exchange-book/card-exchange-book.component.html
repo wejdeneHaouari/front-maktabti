@@ -37,7 +37,10 @@
               <th scope="row">
                 <div class="media align-items-center">
                   <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                    <img alt="Image placeholder" src="{{book.photoPath | defaultImageBook}}">
+                    <img alt="Image placeholder" src="{{book.photoPath | defaultImageBook}}"
+                         default="../../../assets/images/books/default-book.png"
+                         class="img"
+                    >
                   </a>
                   <div class="media-body">
                     <span class="mb-0 text-sm">{{book.name}}</span>
