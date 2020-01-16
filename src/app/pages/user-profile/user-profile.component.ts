@@ -46,8 +46,8 @@ export class UserProfileComponent implements OnInit {
     const formData = new FormData();
     formData.append('image', this.file);
     formData.append('name', this.updateForm.get('name').value);
-    formData.append('email', this.updateForm.get('email').value);
-    formData.append('password', this.updateForm.get('password').value);
+    formData.append('email', this.user.email);
+    formData.append('password', this.user.password);
     formData.append('address', this.updateForm.get('address').value);
     formData.append('city', this.updateForm.get('city').value);
     formData.append('postalCode', this.updateForm.get('postalCode').value);
