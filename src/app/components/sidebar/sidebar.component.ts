@@ -25,15 +25,40 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
 
+  constructor(private router: Router) { }
+
   public menuItems: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) { }
+  openMap: { [name: string]: boolean } = {
+    sub1: true,
+    sub2: true,
+    sub3: true
+  };
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+  }
+
+  openHandler(value: string): void {
+    for (const key in this.openMap) {
+      if (key !== value) {
+        this.openMap[key] = false;
+      }
+    }
+  }
+
+  collapse(value: string) {
+
+    for (const key in this.openMap) {
+      if (key !== value) {
+        this.openMap[key] = true;
+      } else {
+        this.openMap[key] = !this.openMap[key];
+      }
+    }
   }
 }

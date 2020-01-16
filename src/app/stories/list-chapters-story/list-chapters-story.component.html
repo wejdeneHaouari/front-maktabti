@@ -2,7 +2,12 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->  <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10" *ngIf="owner">
 
+          <a class="btn btn-info" (click)="addChapter()">add chapter</a>
+        </div>
+      </div>
     </div>
 
     </div>
@@ -16,52 +21,48 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
-          <h3 class="mb-0">My stories</h3>
+          <h3 class="mb-0"> chapters</h3>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
             <tr>
-              <th scope="col">Story</th>
-              <th scope="col">Genre</th>
+              <th scope="col">chapter</th>
+              <th scope="col">Number</th>
               <th scope="col">Created at</th>
-              <th scope="col">add chapter</th>
+              <th scope="col">read chapter</th>
             </tr>
             </thead>
-            <tbody *ngIf="stories">
-            <tr *ngFor="let story of stories.content">
+            <tbody *ngIf="chapters">
+            <tr *ngFor="let chapter of chapters.content">
               <th scope="row">
                 <div class="media align-items-center">
 
                   <div class="media-body">
-                    <span class="mb-0 text-sm">{{story.name}}</span>
+                    <span class="mb-0 text-sm">{{chapter.name}}</span>
                   </div>
                 </div>
               </th>
               <td>
-                {{story.genre}}
+                {{chapter.numero}}
               </td>
               <td>
 
-                {{story.createdAt | date}}
+                {{chapter.createdAt | date}}
 
               </td>
               <td>
-                <a (click)="addChapter(story)"  class="btn btn-info">Add chapter</a>
+                <a (click)="viewChapter(chapter)"  class="btn btn-info">View chapter</a>
               </td>
-              <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
-                <p>Content one</p>
-                <p>Content two</p>
-                <p>Content three</p>
-              </nz-modal>
+
 
             </tr>
 
             </tbody>
           </table>
         </div>
-        <div class="card-footer py-4" *ngIf="stories">
-          <nz-pagination [nzPageIndex]=currentPage  [nzTotal]=stories.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
+        <div class="card-footer py-4" *ngIf="chapters">
+          <nz-pagination [nzPageIndex]=currentPage  [nzTotal]=chapters.totalElements  [nzPageSize]=sizePage (nzPageIndexChange)="paginate($event)"></nz-pagination>
         </div>
       </div>
     </div>

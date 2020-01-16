@@ -22,9 +22,13 @@ import {RequestListComponent} from './books/request-list/request-list.component'
 import {ConfirmReceiveComponent} from './books/confirm-receive/confirm-receive.component';
 import {CheckoutComponent} from './payement/checkout/checkout.component';
 import {WriteChapterComponent} from './chapter/write-chapter/write-chapter.component';
-import {CreateChapterComponent} from './chapter/create-chapter/create-chapter.component';
+import {CreateChapterComponent} from './stories/create-chapter/create-chapter.component';
 import {ListChapterComponent} from './chapter/list-chapter/list-chapter.component';
 import {ReadChapterComponent} from './chapter/read-chapter/read-chapter.component';
+import {CreateStoryComponent} from './stories/create-story/create-story.component';
+import {ListStoryComponent} from './stories/list-story/list-story.component';
+import {ListChaptersStoryComponent} from './stories/list-chapters-story/list-chapters-story.component';
+import {DetailsChapterComponent} from './stories/details-chapter/details-chapter.component';
 
 const routes: Routes = [
   {
@@ -48,10 +52,14 @@ const routes: Routes = [
       {path: 'request', component: SendRequestComponent, canActivate:[AuthGuard] },
       {path: 'request/:id', component: RequestListComponent, canActivate: [AuthGuard]},
       {path: 'confirm-exchange', component: ConfirmReceiveComponent, canActivate: [AuthGuard]},
-      {path: 'write-chapter/:id', component: WriteChapterComponent, canActivate: [AuthGuard]},
+      {path: 'story/create-chapter/:id', component: WriteChapterComponent, canActivate: [AuthGuard]},
       {path: 'create-chapter', component: CreateChapterComponent, canActivate: [AuthGuard]},
-      {path: 'list-chapter', component: ListChapterComponent, canActivate: [AuthGuard]},
-      {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]}
+      {path: 'create-story', component: CreateStoryComponent, canActivate: [AuthGuard]},
+      {path: 'story/chapters/:id', component: ListChaptersStoryComponent, canActivate: [AuthGuard]},
+      {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]},
+      {path: 'list-story', component: ListStoryComponent, canActivate: [AuthGuard]},
+      {path: 'read-story', component: ListStoryComponent, canActivate: [AuthGuard]},
+      {path: 'story/:idStory/chapter/:id', component: DetailsChapterComponent, canActivate: [AuthGuard]}
     ]
   }, {
     path: '',

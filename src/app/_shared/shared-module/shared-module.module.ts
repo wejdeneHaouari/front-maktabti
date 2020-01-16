@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DefaultImageBookPipe} from '../../pipes/default-image-book.pipe';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {DefaultImageUserPipe} from '../../pipes/default-image-user.pipe';
 
 @NgModule({
@@ -9,6 +10,7 @@ import {DefaultImageUserPipe} from '../../pipes/default-image-user.pipe';
 
   ],
   imports: [
+    NzMenuModule,
     CommonModule
   ],
   exports: [

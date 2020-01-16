@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CrudService} from '../../_services/crud.service';
-import {API_URL, CREATE_CHAPTER} from '../../globals/global-variables';
+import {API_URL, CHAPTERS_STORY, CREATE_CHAPTER} from '../../globals/global-variables';
 import {ChapterMV} from '../chaptreModelView/ChapterMV';
 
 @Component({
@@ -33,22 +33,20 @@ export class WriteChapterComponent implements OnInit {
 
   ngOnInit(): void {
     this.formWriteChapter = this.formBuilder.group({
-      chapter: ''
+      content: '',
+      name: '',
     });
   }
 
   onClick() {
-    const chapterMv: ChapterMV = new ChapterMV();
-    chapterMv.id = this.id;
-    chapterMv.content = this.chaptercontent;
-    console.log(this.id);
-    console.log(this.chaptercontent);
-    console.log(chapterMv);
 
-    this.crudService.put(API_URL + CREATE_CHAPTER, chapterMv).subscribe(
+    console.log(this.formWriteChapter.value);
+
+    this.crudService.post(API_URL + CHAPTERS_STORY + '/' + this.id, this.formWriteChapter.value).subscribe(
       (response) => {
-        //this.router.navigate(['/write-chapter/', response.id]);
-        this.router.navigate(['/list-chapter']);
+        this.router.navigate(['/story/chapters/', this.id]);
+
+        console.log(response);
       },
       (error) => {
         console.log(error);

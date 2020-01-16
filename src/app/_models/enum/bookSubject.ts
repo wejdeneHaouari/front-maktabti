@@ -1,4 +1,5 @@
 export enum BookSubject {
+  ALL,
   Classics,
   Graphic ,
   Novels ,
@@ -14,5 +15,4 @@ export enum BookSubject {
   Romance,
   Fantasy,
   Teen,
-  Westerns
-}
+  Westerns}
