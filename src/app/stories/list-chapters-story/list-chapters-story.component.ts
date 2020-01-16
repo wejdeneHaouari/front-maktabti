@@ -23,6 +23,7 @@ export class ListChaptersStoryComponent implements OnInit {
   sort = 'createdAt,desc';
   user: User;
   owner = false;
+  story: Story;
   private selectedId: number;
   constructor(private crudService: CrudService,
               private router: Router,
@@ -48,14 +49,21 @@ export class ListChaptersStoryComponent implements OnInit {
     params = new HttpParams().set('page', selectedPage.toString())
       .set('size', this.sizePage.toString()).set('sort', this.sort.toString());
 
+    this.crudService.getOne(API_URL + STORY, this.selectedId).subscribe(
+      (response) => {
+        console.log(response)
+        this.story = response;
+        if (this.story && (this.user.id === this.story.owner.id)){
+          this.owner = true;
+        }
+      }
+    )
 
     this.crudService.getAllWithParams(API_URL + STORY + '/' + this.selectedId + CHAPTER, params).subscribe(
       (response) => {
         this.chapters = response;
         console.log(this.chapters);
-        if (this.chapters && (this.user.id === this.chapters.content[0].story.owner.id)){
-          this.owner = true;
-        }
+
         this.currentPage = this.chapters.pageable.pageNumber + 1;
       },
       (error =>  {
