@@ -22,6 +22,7 @@ export class ListChaptersStoryComponent implements OnInit {
   sizePage: number;
   sort = 'createdAt,desc';
   user: User;
+  owner = false;
   private selectedId: number;
   constructor(private crudService: CrudService,
               private router: Router,
@@ -38,6 +39,7 @@ export class ListChaptersStoryComponent implements OnInit {
     this.currentPage = 1;
     this.sizePage = 6;
     this.getChaptersByStory();
+
   }
 
   getChaptersByStory() {
@@ -51,6 +53,9 @@ export class ListChaptersStoryComponent implements OnInit {
       (response) => {
         this.chapters = response;
         console.log(this.chapters);
+        if (this.chapters && (this.user.id === this.chapters.content[0].story.owner.id)){
+          this.owner = true;
+        }
         this.currentPage = this.chapters.pageable.pageNumber + 1;
       },
       (error =>  {

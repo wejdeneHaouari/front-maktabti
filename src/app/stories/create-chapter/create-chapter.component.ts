@@ -35,7 +35,7 @@ export class CreateChapterComponent implements OnInit {
     console.log(API_URL + CREATE_CHAPTER);
     this.signInService.currentUser.subscribe(user => {
     });
-    //this.formGroup.patchValue({releaseDate: });
+
     console.log(this.formGroup.value);
     this.crudService.post(API_URL + CREATE_CHAPTER, this.formGroup.value).subscribe(
       (response) => {

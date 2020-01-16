@@ -59,6 +59,7 @@ const routes: Routes = [
       {path: 'story/chapters/:id', component: ListChaptersStoryComponent, canActivate: [AuthGuard]},
       {path: 'read-chapter/:id', component: ReadChapterComponent, canActivate: [AuthGuard]},
       {path: 'list-story', component: ListStoryComponent, canActivate: [AuthGuard]},
+      {path: 'read-story', component: ListStoryComponent, canActivate: [AuthGuard]},
       {path: 'story/:idStory/chapter/:id', component: DetailsChapterComponent, canActivate: [AuthGuard]}
     ]
   }, {

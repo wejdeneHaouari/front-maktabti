@@ -17,6 +17,6 @@ export class Story {
   updatedAt: Date;
 
 
-  user: User;
+  owner: User;
 
 }
