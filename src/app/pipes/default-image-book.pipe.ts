@@ -4,7 +4,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'defaultImageBook'
 })
 export class DefaultImageBookPipe implements PipeTransform {
-  defaultImagePath = '../../../assets/img/images/book-default.jpg';
+  defaultImagePath = '../../../assets/img/brand/book-default.jpg';
   transform(value: any, args?: any): any {
      if (!value || !value.trim().length) {
        return this.defaultImagePath;
